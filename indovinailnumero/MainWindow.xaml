@@ -5,15 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:indovinailnumero"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="500">
     <Grid>
-        <Button x:Name="btn_reset" Content="Reset" HorizontalAlignment="Left" Margin="560,56,0,0" VerticalAlignment="Top" Width="110" Height="37" FontSize="18" Click="btn_reset_Click"/>
-        <Button x:Name="btn_genera" Content="Genera" HorizontalAlignment="Left" Margin="330,56,0,0" VerticalAlignment="Top" Width="95" Height="37" FontSize="18" Click="btn_genera_Click"/>
-        <TextBox x:Name="txt_numero" HorizontalAlignment="Left" Height="37" Margin="52,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontSize="18"/>
-        <Label x:Name="lbl_ris" Content="" HorizontalAlignment="Left" Margin="451,170,0,0" VerticalAlignment="Top" Width="311" Height="41" FontSize="18" Foreground="White"/>
-        <TextBox x:Name="txt_difficolta" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Margin="52,56,0,0" FontSize="18"/>
-        <Button x:Name="btn_indovina" Content="Indovina" HorizontalAlignment="Left" Margin="330,170,0,0" VerticalAlignment="Top" Width="95" Height="37" FontSize="18" Click="btn_indovina_Click"/>
-        <Label Content="inserire il livello di difficoltà" HorizontalAlignment="Left" Height="35" Margin="425,16,0,0" VerticalAlignment="Top" Width="245" FontSize="18" Background="{x:Null}" Foreground="White"/>
+        <Button x:Name="btn_reset_Click" Content="Reset" HorizontalAlignment="Left" Margin="52,270,0,0" VerticalAlignment="Top" Width="220" Height="37" FontSize="18" Click="btnreset_Click"/>
+        <Button x:Name="btn_genera_Click" Content="Genera" HorizontalAlignment="Left" Margin="330,56,0,0" VerticalAlignment="Top" Width="95" Height="37" FontSize="18" Click="btngenera_Click"/>
+        <TextBox x:Name="txtvalore" HorizontalAlignment="Left" Height="37" Margin="52,170,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="220" FontSize="18"/>
+        <Label x:Name="lblrisultato" Content="" HorizontalAlignment="Left" Margin="74,338,0,0" VerticalAlignment="Top" Width="311" Height="41" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txtdifficolta" HorizontalAlignment="Left" Height="45" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Margin="52,56,0,0" FontSize="18"/>
+        <Button x:Name="btn_indovina_Click" Content="Indovina" HorizontalAlignment="Left" Margin="330,174,0,0" VerticalAlignment="Top" Width="95" Height="37" FontSize="18" Click="btnindovina_Click"/>
+        <Label Content="inserire il livello di difficoltà" HorizontalAlignment="Left" Height="35" Margin="64,0,0,0" VerticalAlignment="Top" Width="208" FontSize="18" Background="{x:Null}" Foreground="White"/>
         <Label Content="inserire un numero &#xD;&#xA;" HorizontalAlignment="Left" Height="35" Margin="130,16,0,0" VerticalAlignment="Top" Width="170" FontSize="18" Foreground="White"/>
     </Grid>
 </Window>

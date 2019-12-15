@@ -24,51 +24,64 @@ namespace indovinailnumero
         {
             InitializeComponent();
         }
-        Random random = new Random();
-        int numeroCasuale;
+        int numeroCasuale = 0;
         int tentativi = 0;
-
         private void btn_genera_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                int nd = int.Parse(txt_difficolta.Text);
-                if (nd < 0 || nd > 100)
-                    MessageBox.Show("il livello di difficolta non è valido", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Hand);
-                numeroCasuale = random.Next(0, nd);
+                int difficolta = int.Parse(txtdifficolta.Text);
+                if (difficolta < 1 || difficolta > 101)
+                {
+                    throw new Exception();
+                }
+                Random random = new Random();
+                numeroCasuale = random.Next(1, difficolta + 1);
             }
-            catch
+            catch (Exception)
             {
-                MessageBox.Show("Non puoi inserire una lettera", "Attenzione", MessageBoxButton.OK, MessageBoxImage.Hand);
+                MessageBox.Show("Non si puo inserire una lettere o un valori diversi da un numero compreso tra 1 e 100");
+                txtdifficolta.Text = "";
             }
-        }
-
-        private void btn_reset_Click(object sender, RoutedEventArgs e)
-        {
-            lbl_ris.Content = "";
-            txt_numero.Clear();
-            txt_difficolta.Clear();
-            tentativi = 0;
-
         }
 
         private void btn_indovina_Click(object sender, RoutedEventArgs e)
         {
-            tentativi++;
-            int n = int.Parse(txt_numero.Text);
-
-            if (numeroCasuale > n)
+            try
             {
-                lbl_ris.Content = "il numero è troppo basso";
+                tentativi++;
+                if (numeroCasuale == 0)
+                {
+                    throw new Exception("Devi prima generare un numero random!");
+                }
+                int difficolta = int.Parse(txtdifficolta.Text);
+                int numero = int.Parse(txtvalore.Text);
+                if (numero < 1 || numero > difficolta)
+                {
+                    throw new Exception();
+                }
+                if (numero == numeroCasuale)
+                {
+                    lblrisultato.Content = $"Il numero uscito è {numeroCasuale}. HAI VINTO con {tentativi} tentativi!";
+                }
+                else
+                {
+                    lblrisultato.Content = "Game Over! Ritenta!";
+                    txtvalore.Text = "";
+                }
             }
-            else if (numeroCasuale < n)
+            catch (Exception)
             {
-                lbl_ris.Content = "il numero è troppo alto";
+                MessageBox.Show("Non puoi inserire lettere o valori fuori dal range tra 1 e N!)");
+                txtvalore.Text = "";
             }
-            else
-            {
-                lbl_ris.Content = $"Hai indovinato con {tentativi}";
-            }
+        }
+        private void btn_reset_Click(object sender, RoutedEventArgs e)
+        {
+            lblrisultato.Content = "";
+            txtvalore.Clear();
+            txtdifficolta.Clear();
+            tentativi = 0;
         }
     }
 }
